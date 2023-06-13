@@ -122,7 +122,7 @@ verilator-build: ${TBFILES} ${BUILD_DIR}/defines.h test_tb_top.cpp
 	touch verilator-build
 
 vcs-build: ${TBFILES} ${BUILD_DIR}/defines.h
-	$(VCS) -full64 -assert svaext -sverilog \
+	$(VCS) -full64 -assert svaext -sverilog $(VCS_DEBUG)\
 	  +error+500  $(defines) +incdir+$(BUILD_DIR)\
 	  -f ${RV_ROOT}/testbench/flist ${TBFILES} -l vcs.log
 	touch vcs-build
